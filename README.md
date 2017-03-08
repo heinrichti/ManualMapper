@@ -1,4 +1,4 @@
-# ManualMapper 
+# ManualMapper ![Build status](https://api.travis-ci.org/Lightraven/ManualMapper.svg?branch=master "Build status")
 ManualMapper is really just a object-to-object mapping registry. 
 If you like to know exactly what is happening but do not like to search for the right mapping-method then this might be for you!
 
@@ -28,4 +28,8 @@ public TargetType MapSourceToTarget(SourceType src)
 }
 ```
 
-![Build status](https://api.travis-ci.org/Lightraven/ManualMapper.svg?branch=master "Build status")
+## Installation
+To install ManualMapper run the following command in the Package Manager Console:
+```
+PM> Install-Package ManualMapper
+```
