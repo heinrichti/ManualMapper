@@ -28,3 +28,4 @@ public TargetType MapSourceToTarget(SourceType src)
 }
 ```
 
+![Build status](https://api.travis-ci.org/Lightraven/ManualMapper.svg?branch=master "Build status")
