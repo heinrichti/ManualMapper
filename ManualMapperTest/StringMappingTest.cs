@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ManualMapper;
 using NUnit.Framework;
@@ -18,12 +16,6 @@ namespace ManualMapperTest
         {
             _mapper = new Mapper();
             _mapper.RegisterMap<string, string>(MappingFunc);
-
-            AutoMapper.Mapper.Initialize(cfg =>
-            {
-                cfg.CreateMap<string, string>()
-                .ProjectUsing(x => MappingFunc(x));
-            });
         }
 
         [Test]
