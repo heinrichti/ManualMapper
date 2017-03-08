@@ -4,13 +4,14 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <authors>Tim Heinrich</authors>
+    <owners>Tim Heinrich</owners>
+    <licenseUrl>https://github.com/Lightraven/ManualMapper/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Lightraven/ManualMapper</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <description>Simple object-to-object mapping without voodoo.</description>
+    <releaseNotes>Initial release.</releaseNotes>
     <copyright>Copyright 2017</copyright>
-    <tags>object-to-object mapping mappings</tags>
+    <tags>object-to-object mapping mapper</tags>
   </metadata>
 </package>
