@@ -2,26 +2,23 @@
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace ManualMapper
 {
-    public unsafe class Mapper
+    public class Mapper
     {
-        private readonly Dictionary<TypeMap, Func<object, object>> _mappings =
-            new Dictionary<TypeMap, Func<object, object>>();
+        private readonly ConcurrentDictionary<TypeMap, Func<object, object>> _mappings =
+            new ConcurrentDictionary<TypeMap, Func<object, object>>();
 
         public void CreateMap<TSource, TDestination>(Func<TSource, TDestination> mappingFunc)
             where TSource : class
             where TDestination : class
         {
-            var typelessFunc = ((Expression<Func<object, object>>) (value => mappingFunc((TSource) value))).Compile();
+            Func<object, object> typelessFunc = (value => mappingFunc((TSource) value));
             var typeMap = new TypeMap(typeof(TSource), typeof(TDestination));
-            if (_mappings.ContainsKey(typeMap))
+
+            if (!_mappings.TryAdd(typeMap, typelessFunc))
                 throw new ArgumentException($"Mapping <{typeof(TSource)}, {typeof(TDestination)}> already exists.");
-            _mappings.Add(typeMap, typelessFunc);
         }
 
         private Func<object, object> GetMappingFunc<TDestination>(Type sourceType)

@@ -20,7 +20,7 @@ namespace ManualMapper
 
         public override bool Equals(object obj)
         {
-            return obj is TypeMap && Equals(obj);
+            return obj is TypeMap && Equals((TypeMap) obj);
         }
 
         public override int GetHashCode()
