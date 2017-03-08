@@ -12,7 +12,7 @@ namespace ManualMapperTest
         public void Setup()
         {
             _mapper = new Mapper();
-            _mapper.CreateMap<ComplexClass, ComplexClass>(MappingFunc);
+            _mapper.RegisterMap<ComplexClass, ComplexClass>(MappingFunc);
 
             _complexClass = new ComplexClass
             {

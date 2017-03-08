@@ -17,7 +17,7 @@ namespace ManualMapperTest
         public void Setup()
         {
             _mapper = new Mapper();
-            _mapper.CreateMap<string, string>(MappingFunc);
+            _mapper.RegisterMap<string, string>(MappingFunc);
 
             AutoMapper.Mapper.Initialize(cfg =>
             {
