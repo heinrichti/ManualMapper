@@ -1,32 +1,32 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ManualMapper;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ManualMapperTest
 {
-    [TestFixture]
+    [TestClass]
     public class StringMappingTest
     {
         private Mapper _mapper;
         private const string NameTest = "Tim";
 
-        [SetUp]
+        [TestInitialize]
         public void Setup()
         {
             _mapper = new Mapper();
             _mapper.RegisterMap<string, string>(MappingFunc);
         }
 
-        [Test]
+        [TestMethod]
         public void SimpleMapping()
         {
-            var map = _mapper.Map<string>(NameTest);
+            var map = _mapper.Map<string, string>(NameTest);
 
             Assert.AreEqual("Hello Tim", map);
         }
 
-        [Test]
+        [TestMethod]
         public void ListMapping()
         {
             const string test1 = "Test1";
@@ -40,7 +40,7 @@ namespace ManualMapperTest
                 test3
             };
 
-            var result = _mapper.MapList<string>(list).ToList();
+            var result = _mapper.MapList<string, string>(list).ToList();
 
             Assert.AreEqual(3, result.Count);
             Assert.AreEqual(MappingFunc(test1), result[0]);

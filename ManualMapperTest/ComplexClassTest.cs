@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ManualMapper;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ManualMapperTest
 {
-    [TestFixture]
+    [TestClass]
     internal class ComplexClassTest
     {
-        [SetUp]
+        [TestInitialize]
         public void Setup()
         {
             _mapper = new Mapper();
@@ -55,10 +55,10 @@ namespace ManualMapperTest
             };
         }
 
-        [Test]
+        [TestMethod]
         public void Mapping()
         {
-            var result = _mapper.Map<ComplexClass>(_complexClass);
+            var result = _mapper.Map<ComplexClass, ComplexClass>(_complexClass);
 
             Assert.AreEqual(_complexClass.Prop1, result.Prop1);
             Assert.AreEqual(_complexClass.Prop2, result.Prop2);
