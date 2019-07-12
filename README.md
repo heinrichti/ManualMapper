@@ -1,4 +1,4 @@
-# ManualMapper ![Build status](https://api.travis-ci.org/Lightraven/ManualMapper.svg?branch=master "Build status")
+# ManualMapper
 ManualMapper is really just a object-to-object mapping registry. 
 If you like to know exactly what is happening but do not like to search for the right mapping-method then this might be for you!
 
@@ -13,7 +13,7 @@ var mapper = new Mapper()
 mapper.CreateMap<SourceType, TargetType>(MapSourceToTarget);
 
 // Map your object to the other type just by providing the target type
-TargetType mappedObj = mapper.Map<TargetType>(sourceObj);
+TargetType mappedObj = mapper.Map<SourceType, TargetType>(sourceObj);
 
 // Example mapping function:
 public TargetType MapSourceToTarget(SourceType src)
